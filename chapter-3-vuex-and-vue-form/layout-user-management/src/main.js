@@ -1,4 +1,9 @@
 import { createApp } from "vue";
 import App from "./App.vue";
 
-createApp(App).mount("#app");
+import AppModal from "./components/AppModal.vue";
+const app = createApp(App);
+
+app.component("app-modal", AppModal);
+
+app.mount("#app");
