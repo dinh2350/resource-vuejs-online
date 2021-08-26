@@ -1,0 +1,11 @@
+.app-cycle {
+  margin: 10px auto;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: yellow;
+}
+
+.app-cycle--red {
+  background-color: red;
+}
