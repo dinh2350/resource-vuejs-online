@@ -11,20 +11,14 @@
 <script>
 import UserItem from "./UserItem.vue";
 import { createNamespacedHelpers } from "vuex";
-const { mapGetters, mapState } = createNamespacedHelpers("user");
+const { mapGetters } = createNamespacedHelpers("user");
 export default {
   components: {
     UserItem,
   },
   computed: {
-    loading() {
-      return false;
-    },
     ...mapGetters({
-      getByAdmin: "userListByAdmin",
-    }),
-    ...mapState({
-      userList: (state) => state.userList,
+      userList: "userListByUserName",
     }),
   },
 };

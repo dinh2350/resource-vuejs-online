@@ -1,16 +1,19 @@
 <template>
   <tr>
     <td>
-      <img src="assets/images/faces/face1.jpg" class="mr-2" alt="image" />
+      <img :src="user.avatar" class="mr-2" alt="image" />
       {{ user.name }}
     </td>
-    <td>23</td>
+    <td>{{ user.age }}</td>
     <td>
-      <label class="badge badge-gradient-primary mr-2">Java</label>
-      <label class="badge badge-gradient-primary mr-2">Java</label>
-      <label class="badge badge-gradient-primary mr-2">Java</label>
+      <label
+        class="badge badge-gradient-primary mr-2"
+        v-for="(programming, index) in user.programmingLanguage"
+        :key="index"
+        >{{ programming }}</label
+      >
     </td>
-    <td>Nam</td>
+    <td>{{ user.gender }}</td>
     <td>
       <button type="button" class="mr-2 btn btn-gradient-danger btn-icon-text">
         <i class="mdi mdi-delete btn-icon-prepend"></i> Remove

@@ -4,12 +4,15 @@
       <input
         type="text"
         class="form-control"
-        placeholder="Recipient's username"
-        aria-label="Recipient's username"
-        aria-describedby="basic-addon2"
+        placeholder="user name"
+        v-model="userName"
       />
       <div class="input-group-append">
-        <button class="btn btn-sm btn-gradient-primary" type="button">
+        <button
+          class="btn btn-sm btn-gradient-primary"
+          type="button"
+          @click="searchByUserName(userName)"
+        >
           Search
         </button>
       </div>
@@ -18,7 +21,21 @@
 </template>
 
 <script>
-export default {};
+import { createNamespacedHelpers } from "vuex";
+const { mapActions } = createNamespacedHelpers("user");
+
+export default {
+  data() {
+    return {
+      userName: "",
+    };
+  },
+  methods: {
+    ...mapActions({
+      searchByUserName: "searchByUserName",
+    }),
+  },
+};
 </script>
 
 <style></style>
