@@ -1,8 +1,10 @@
-function getRandomNumber(min, max) {
-  return Math.floor(Math.random() * (max - min) + min);
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
 }
 
-const dataCardList = [
+const dataPokemons = [
   {
     id: 1,
     name: "bulbasaur",
@@ -1905,277 +1907,256 @@ const dataCardList = [
   },
 ];
 
-const app = Vue.createApp({
+Vue.createApp({
   data() {
     return {
       cards: [
         {
-          id: 7,
-          name: "squirtle",
+          id: 1,
+          name: "bulbasaur",
           images: {
             game: {
               front:
-                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png",
-              back: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/7.png",
+                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+              back: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/1.png",
             },
             png: {
               front:
-                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png",
+                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
             },
             svg: {
               front:
-                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/7.svg",
+                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg",
             },
           },
         },
         {
-          id: 8,
-          name: "wartortle",
+          id: 2,
+          name: "ivysaur",
           images: {
             game: {
               front:
-                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/8.png",
-              back: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/8.png",
+                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png",
+              back: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/2.png",
             },
             png: {
               front:
-                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/8.png",
+                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/2.png",
             },
             svg: {
               front:
-                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/8.svg",
+                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/2.svg",
             },
           },
         },
         {
-          id: 9,
-          name: "blastoise",
+          id: 3,
+          name: "venusaur",
           images: {
             game: {
               front:
-                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/9.png",
-              back: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/9.png",
+                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png",
+              back: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/3.png",
             },
             png: {
               front:
-                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png",
+                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png",
             },
             svg: {
               front:
-                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/9.svg",
+                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/3.svg",
             },
           },
         },
         {
-          id: 10,
-          name: "caterpie",
+          id: 4,
+          name: "charmander",
           images: {
             game: {
               front:
-                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10.png",
-              back: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/10.png",
+                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
+              back: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/4.png",
             },
             png: {
               front:
-                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10.png",
+                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png",
             },
             svg: {
               front:
-                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/10.svg",
+                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/4.svg",
             },
           },
         },
         {
-          id: 7,
-          name: "squirtle",
+          id: 1,
+          name: "bulbasaur",
           images: {
             game: {
               front:
-                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png",
-              back: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/7.png",
+                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+              back: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/1.png",
             },
             png: {
               front:
-                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png",
+                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
             },
             svg: {
               front:
-                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/7.svg",
+                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg",
             },
           },
         },
         {
-          id: 8,
-          name: "wartortle",
+          id: 2,
+          name: "ivysaur",
           images: {
             game: {
               front:
-                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/8.png",
-              back: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/8.png",
+                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png",
+              back: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/2.png",
             },
             png: {
               front:
-                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/8.png",
+                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/2.png",
             },
             svg: {
               front:
-                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/8.svg",
+                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/2.svg",
             },
           },
         },
         {
-          id: 9,
-          name: "blastoise",
+          id: 3,
+          name: "venusaur",
           images: {
             game: {
               front:
-                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/9.png",
-              back: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/9.png",
+                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png",
+              back: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/3.png",
             },
             png: {
               front:
-                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png",
+                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png",
             },
             svg: {
               front:
-                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/9.svg",
+                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/3.svg",
             },
           },
         },
         {
-          id: 10,
-          name: "caterpie",
+          id: 4,
+          name: "charmander",
           images: {
             game: {
               front:
-                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10.png",
-              back: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/10.png",
+                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
+              back: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/4.png",
             },
             png: {
               front:
-                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10.png",
+                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png",
             },
             svg: {
               front:
-                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/10.svg",
+                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/4.svg",
             },
           },
         },
       ].sort(() => Math.random() - 0.5),
-      selectCards: [],
-      pairedCards: [],
-      resultGame: {
+      selectCard: [],
+      pairedCard: [],
+      gameResult: {
         win: false,
         lost: false,
-        finish: false,
       },
       gameData: {
-        selectedDeck: 4,
+        selectDeck: 4,
         badSelect: 10,
       },
     };
   },
-
   watch: {
-    "gameData.selectedDeck": function (newVal) {
-      const selectedDeck = parseInt(newVal);
-      this.handleResetGame();
-      return selectedDeck;
+    "gameData.selectDeck": function (newValue) {
+      console.log(newValue);
+      const deck = parseInt(newValue);
+      this.handleResetGame(deck);
     },
     "gameData.badSelect": function (newValue) {
       if (newValue <= 0) {
-        this.hanldeLost();
+        this.gameResult = {
+          win: false,
+          lost: true,
+        };
       }
-      return newValue;
     },
   },
   computed: {
-    uncoveredCards() {
-      return [...this.selectCards, ...this.pairedCards];
-    },
-    coveredCards() {
-      let coveredCards = this.cards.filter(
-        (card) => !this.uncoveredCards.includes(card)
+    coveredCard() {
+      let coveredCard = this.cards.filter(
+        (card) => !this.uncoveredCard.includes(card)
       );
 
-      if (coveredCards.length === 0) {
-        this.hanldeWin();
+      if (coveredCard.length === 0) {
+        this.gameResult = {
+          win: true,
+          lost: false,
+        };
       }
 
-      return coveredCards;
+      return coveredCard;
+    },
+    uncoveredCard() {
+      let uncoveredCard = [...this.selectCard, ...this.pairedCard];
+      return uncoveredCard;
     },
   },
   methods: {
     hanldeSelectCard(card) {
-      console.log(card);
-      this.selectCards.push(card);
-      if (this.selectCards.length === 2) {
-        const [card1, card2] = this.selectCards;
+      this.selectCard.push(card);
+      if (this.selectCard.length === 2) {
+        const [card1, card2] = this.selectCard;
         if (card1.id === card2.id) {
-          this.pairedCards = this.pairedCards.concat(this.selectCards);
+          this.pairedCard.push(card1);
+          this.pairedCard.push(card2);
         } else {
-          this.gameData.badSelect -= 1;
+          this.gameData.badSelect = this.gameData.badSelect - 1;
         }
         setTimeout(() => {
-          this.selectCards = [];
+          this.selectCard = [];
         }, 800);
       }
     },
-    handleResetGame() {
-      this.resultGame = {
+    handleResetGame(deck) {
+      const pokemonCardList = this.createPokemonByDeck(deck);
+      const pairPokemonList = this.createPairPokemon(pokemonCardList);
+      this.cards = pairPokemonList.sort(() => Math.random() - 0.5);
+      this.selectCard = [];
+      this.pairedCard = [];
+      this.gameResult = {
         win: false,
         lost: false,
-        finish: false,
       };
-      this.selectCards = [];
-      this.pairedCards = [];
       this.gameData.badSelect = 10;
-      this.randomCardsPokemon(); // ✔ 🎶
     },
-    createCardsPokemonByDeck(deck) {
-      let cardsPokemon = [];
+    createPokemonByDeck(deck) {
+      const pokemonCardList = [];
       for (let index = 0; index < deck; index++) {
-        const randomNumber_00_99 = getRandomNumber(00, 99);
-        const newPokemon = dataCardList[randomNumber_00_99];
-        cardsPokemon.push(newPokemon);
+        const numberRange_00_99 = getRandomInt(0, 99);
+        const pokemontCard = dataPokemons[numberRange_00_99];
+        pokemonCardList.push(pokemontCard);
       }
-      return cardsPokemon;
+      return pokemonCardList;
     },
-    createPairsPokemon(cardsPokemon) {
-      let pairsPokemon = [];
-      cardsPokemon.map(function (card) {
-        const card1 = { ...card };
-        const card2 = { ...card };
-        pairsPokemon.push(card1);
-        pairsPokemon.push(card2);
+    createPairPokemon(pokemonCardList) {
+      const PairPokemonList = [];
+      pokemonCardList.map((pokemonCard) => {
+        const pokemonCard1 = { ...pokemonCard };
+        const pokemonCard2 = { ...pokemonCard };
+        PairPokemonList.push(pokemonCard1);
+        PairPokemonList.push(pokemonCard2);
       });
-      return pairsPokemon;
-    },
-    randomCardsPokemon() {
-      let cardsPokemon = this.createCardsPokemonByDeck(
-        this.gameData.selectedDeck
-      );
-      let pairsPokemon = this.createPairsPokemon(cardsPokemon);
-      let pokemonCardsRandom = pairsPokemon.sort(function () {
-        return Math.random() - 0.5;
-      });
-      this.cards = pokemonCardsRandom;
-    },
-    hanldeWin() {
-      this.resultGame = {
-        win: true,
-        lost: false,
-        finish: true,
-      };
-    },
-    hanldeLost() {
-      this.resultGame = {
-        win: false,
-        lost: true,
-        finish: true,
-      };
+      return PairPokemonList;
     },
   },
-});
-
-app.mount("#app");
+}).mount("#app");

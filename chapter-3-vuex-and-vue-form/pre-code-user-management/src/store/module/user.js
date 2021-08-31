@@ -11,7 +11,7 @@ const state = () => ({
       type: "ADMIN",
     },
     {
-      id: 1,
+      id: 2,
       name: "Phan Thùy Duyên",
       avatar: "assets/images/faces/face2.jpg",
       age: 22,
@@ -27,7 +27,7 @@ const state = () => ({
 const getters = {
   userListByUserName(state) {
     return state.userList.filter((userItem) =>
-      userItem.name.includes(state.keyword)
+      userItem.name.toLowerCase().includes(state.keyword.toLowerCase())
     );
   },
 };
@@ -38,6 +38,15 @@ const mutations = {
   },
   searchByUserName(state, payload) {
     state.keyword = payload;
+  },
+  removeUserByid(state, payload) {
+    state.userList = state.userList.filter((user) => user.id !== payload);
+  },
+  updateUser(state, payload) {
+    const index = state.userList.findIndex((user) => user.id === payload.id);
+    if (index !== -1) {
+      state.userList[index] = payload;
+    }
   },
 };
 
@@ -51,6 +60,12 @@ const actions = {
   },
   searchByUserName({ commit }, userName) {
     commit("searchByUserName", userName);
+  },
+  removeUserByid({ commit }, id) {
+    commit("removeUserByid", id);
+  },
+  updateUser({ commit }, user) {
+    commit("updateUser", user);
   },
 };
 

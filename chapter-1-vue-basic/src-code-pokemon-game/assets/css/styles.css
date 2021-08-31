@@ -644,6 +644,7 @@ https://github.com/animate-css/animate.css/blob/main/source/attention_seekers/sh
   font-weight: bold;
   color: var(--color-white);
   opacity: 1;
+  /* transform: translateY(100%); */
   box-shadow: 0.2rem 0.2rem 0.4rem 0.5rem rgba(0, 0, 0, 0.5);
 }
 
