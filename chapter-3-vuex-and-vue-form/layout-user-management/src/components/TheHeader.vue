@@ -20,7 +20,9 @@
       "
     >
       <a class="navbar-brand brand-logo" href="index.html"
-        ><img src="assets/images/logo.svg" alt="logo"
+        ><img
+          src="https://cyberlearn.vn/wp-content/uploads/2020/03/cyberlearn-min-new-opt2.png"
+          alt="logo"
       /></a>
       <a class="navbar-brand brand-logo-mini" href="index.html"
         ><img src="assets/images/logo-mini.svg" alt="logo"
@@ -62,7 +64,7 @@
               <span class="availability-status online"></span>
             </div>
             <div class="nav-profile-text">
-              <p class="mb-1 text-black">David Greymaax</p>
+              <p class="mb-1 text-black">Nguyễn Phong Hào</p>
             </div>
           </a>
           <div
