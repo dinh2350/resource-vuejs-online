@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "Nguyễn Phong Hào",
+    "avatar": "hinh",
+    "age": 23,
+    "description": "thân thiện , hoc hỏi nhanh",
+    "programmingLanguage": ["JS", "JAVA"],
+    "gender": "Nam",
+    "type": "ADMIN"
+  },
+  {
+    "id": 1,
+    "name": "Phan Thùy Duyên",
+    "avatar": "hinh",
+    "age": 22,
+    "description": "thân thiện , hoc hỏi nhanh",
+    "programmingLanguage": ["PHP", "C#"],
+    "gender": "Nữ",
+    "type": "CLIENT"
+  }
+]
