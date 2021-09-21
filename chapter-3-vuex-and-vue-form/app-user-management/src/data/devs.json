@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    "id": "1",
     "name": "Nguyễn Phong Hào",
     "avatar": "hinh",
     "age": 23,
@@ -10,7 +10,7 @@
     "type": "ADMIN"
   },
   {
-    "id": 1,
+    "id": "2",
     "name": "Phan Thùy Duyên",
     "avatar": "hinh",
     "age": 22,

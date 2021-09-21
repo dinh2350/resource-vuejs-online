@@ -1,29 +1,8 @@
+import { createUserApi, getAllUserApi, removeUserApi } from "../../apis/users";
+
 const state = () => {
   return {
-    userList: [
-      {
-        id: 1,
-        name: "Nguyễn Phong Hào",
-        avatar:
-          "https://pdp.edu.vn/wp-content/uploads/2021/05/hinh-anh-avatar-nam-1.jpg",
-        age: 23,
-        description: "thân thiện , hoc hỏi nhanh",
-        programmingLanguage: ["JS", "JAVA"],
-        gender: "Nam",
-        type: "ADMIN",
-      },
-      {
-        id: 2,
-        name: "Phan Thùy Duyên",
-        avatar:
-          "https://pdp.edu.vn/wp-content/uploads/2021/05/hinh-anh-avatar-cho-con-gai-1.jpg",
-        age: 22,
-        description: "thân thiện , hoc hỏi nhanh",
-        programmingLanguage: ["PHP", "C#"],
-        gender: "Nữ",
-        type: "CLIENT",
-      },
-    ],
+    userList: [],
     searchName: "",
   };
 };
@@ -39,6 +18,9 @@ const getters = {
   },
 };
 const mutations = {
+  setUserListMutation(state, payload) {
+    state.userList = payload;
+  },
   setSearchNameMutation(state, payload) {
     state.searchName = payload;
   },
@@ -64,17 +46,25 @@ const mutations = {
   },
 };
 const actions = {
+  async getAllUserAction(context) {
+    const payload = await getAllUserApi();
+    context.commit("setUserListMutation", payload);
+  },
   setSearchNameAction(context, payload) {
     setTimeout(() => {
       context.commit("setSearchNameMutation", payload);
     }, 500);
   },
-  addUserAction(context, payload) {
-    const newUser = { ...payload, id: Math.random() };
-    context.commit("addUserMutation", newUser);
+  async addUserAction(context, payload) {
+    const res = await createUserApi(payload);
+    console.log(res);
+    // gọi lại action getAllUserAction
+    context.dispatch("getAllUserAction");
   },
-  removeUserAction(context, payload) {
-    context.commit("removeUserMutation", payload);
+  async removeUserAction(context, payload) {
+    await removeUserApi(payload);
+    // gọi lại action getAllUserAction
+    context.dispatch("getAllUserAction");
   },
   updateUserAction(context, payload) {
     context.commit("updateUserMutation", payload);
