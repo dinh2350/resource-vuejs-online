@@ -1,4 +1,9 @@
-import { createUserApi, getAllUserApi, removeUserApi } from "../../apis/users";
+import {
+  createUserApi,
+  getAllUserApi,
+  removeUserApi,
+  updateUserApi,
+} from "../../apis/users";
 
 const state = () => {
   return {
@@ -66,8 +71,10 @@ const actions = {
     // gọi lại action getAllUserAction
     context.dispatch("getAllUserAction");
   },
-  updateUserAction(context, payload) {
-    context.commit("updateUserMutation", payload);
+  async updateUserAction(context, payload) {
+    await updateUserApi(payload);
+    // gọi lại action getAllUserAction
+    context.dispatch("getAllUserAction");
   },
 };
 

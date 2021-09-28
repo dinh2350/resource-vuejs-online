@@ -25,3 +25,12 @@ export const removeUserApi = async (id) => {
   });
   return res;
 };
+
+export const updateUserApi = async (user) => {
+  const res = await axios({
+    method: "PUT",
+    url: `https://6149c16307549f001755a57f.mockapi.io/users/${user.id}`,
+    data: user,
+  });
+  return res;
+};
