@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <!-- CSS
+================================================== -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/main-color.css" id="colors" />
+  </head>
+  <body>
+    <noscript>
+      <strong
+        >We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work
+        properly without JavaScript enabled. Please enable it to
+        continue.</strong
+      >
+    </noscript>
+    <div id="app"></div>
+
+    <!-- Scripts
+================================================== -->
+    <script type="text/javascript" src="scripts/jquery-3.6.0.min.js"></script>
+    <script
+      type="text/javascript"
+      src="scripts/jquery-migrate-3.3.2.min.js"
+    ></script>
+    <script type="text/javascript" src="scripts/mmenu.min.js"></script>
+    <script type="text/javascript" src="scripts/chosen.min.js"></script>
+    <script type="text/javascript" src="scripts/slick.min.js"></script>
+    <script type="text/javascript" src="scripts/rangeslider.min.js"></script>
+    <script type="text/javascript" src="scripts/magnific-popup.min.js"></script>
+    <script type="text/javascript" src="scripts/waypoints.min.js"></script>
+    <script type="text/javascript" src="scripts/counterup.min.js"></script>
+    <script type="text/javascript" src="scripts/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="scripts/tooltips.min.js"></script>
+    <script type="text/javascript" src="scripts/custom.js"></script>
+
+    <!-- Leaflet // Docs: https://leafletjs.com/ -->
+    <script src="scripts/leaflet.min.js"></script>
+
+    <!-- Leaflet Maps Scripts -->
+    <script src="scripts/leaflet-markercluster.min.js"></script>
+    <script src="scripts/leaflet-gesture-handling.min.js"></script>
+    <script src="scripts/leaflet-listeo.js"></script>
+
+    <!-- Leaflet Geocoder + Search Autocomplete // Docs: https://github.com/perliedman/leaflet-control-geocoder -->
+    <script src="scripts/leaflet-autocomplete.js"></script>
+    <script src="scripts/leaflet-control-geocoder.js"></script>
+
+    <!-- Typed Script -->
+    <script type="text/javascript" src="scripts/typed.js"></script>
+    <script>
+      var typed = new Typed(".typed-words", {
+        strings: ["Attractions", " Restaurants", " Hotels"],
+        typeSpeed: 80,
+        backSpeed: 80,
+        backDelay: 4000,
+        startDelay: 1000,
+        loop: true,
+        showCursor: true,
+      });
+    </script>
+
+    <!-- Style Switcher
+================================================== -->
+    <script src="scripts/switcher.js"></script>
+
+    <!-- built files will be auto injected -->
+  </body>
+</html>
