@@ -1,0 +1,1283 @@
+{
+	"info": {
+		"_postman_id": "e9233372-fd77-4126-9f7c-dde48256966b",
+		"name": "Project AirBnB",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Quản Lý Người Dùng",
+			"item": [
+				{
+					"name": "1 / tạo người dùng",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token_admin}}",
+								"type": "text"
+							},
+							{
+								"key": "tokenByClass",
+								"value": "{{tokenByClass}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"La Thuy\",\r\n  \"email\": \"thuy@gmail.com\",\r\n  \"password\": \"thuy0159\",\r\n  \"phone\": \"0934657867\",\r\n  \"birthday\": \"1998-05-11\",\r\n  \"gender\": true,\r\n  \"type\": \"ADMIN\",\r\n  \"address\": \"An Giang\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						},
+						"description": "API thêm người dùng"
+					},
+					"response": []
+				},
+				{
+					"name": "2 / lấy thông tin chi tiết người dùng",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "tokenByClass",
+								"value": "{{tokenByClass}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/api/users/60c630afe881f92cf4539f29",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"60c630afe881f92cf4539f29"
+							]
+						},
+						"description": "API lấy chi tiết người dùng"
+					},
+					"response": []
+				},
+				{
+					"name": "3 / lấy danh sách người dùng phân trang",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "tokenByClass",
+								"value": "{{tokenByClass}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/users/pagination?skip=0&limit=3",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"pagination"
+							],
+							"query": [
+								{
+									"key": "skip",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "3"
+								}
+							]
+						},
+						"description": "API lấy danh sách phân trang người dùng"
+					},
+					"response": []
+				},
+				{
+					"name": "4 / xóa người dùng",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token_admin}}",
+								"type": "text"
+							},
+							{
+								"key": "tokenByClass",
+								"value": "{{tokenByClass}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/api/users/60adebcf3992c4001544323e",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"60adebcf3992c4001544323e"
+							]
+						},
+						"description": "API xóa người dùng theo id"
+					},
+					"response": []
+				},
+				{
+					"name": "5 / cập nhật người dùng",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token_admin}}",
+								"type": "text"
+							},
+							{
+								"key": "tokenByClass",
+								"value": "{{tokenByClass}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Nguyễn Phong Hào\",\r\n    \"email\": \"hao9x0159@gmail.com\",\r\n    \"phone\": \"0909876967\",\r\n    \"birthday\": \"1998-05-10T17:00:00.000Z\",\r\n    \"gender\": true,\r\n    \"address\": \"191A Chường Trinh Quận 12\",\r\n    \"type\": \"CLIENT\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/users/60c321a09e2c3233f436e9ed",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"60c321a09e2c3233f436e9ed"
+							]
+						},
+						"description": "API update người dùng theo id"
+					},
+					"response": []
+				},
+				{
+					"name": "6 / cập nhật ảnh đại diện người dùng",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTJmMGQ5M2ExODAxNTAwMWMwMTFkMDQiLCJlbWFpbCI6ImtoYTl4MDE1OUBnbWFpbC5jb20iLCJ0eXBlIjoiQ0xJRU5UIiwiaWF0IjoxNjMwNDczNjYxfQ.8JgWF4GQ_7klcn4PudsMBwYtwtjIW-f0IgFA1jBuVIk",
+								"description": "Hào",
+								"type": "text"
+							},
+							{
+								"key": "tokenByClass",
+								"value": "{{tokenByClass}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "/C:/Users/hao9x/Pictures/ag/95482478_679356936219219_1305451908005101568_n.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/users/upload-avatar",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"upload-avatar"
+							]
+						},
+						"description": "API cập nhật ảnh đại diện cho người dùng"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Quản Lý vị trí",
+			"item": [
+				{
+					"name": "7 / tạo vị trí",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token_admin}}",
+								"type": "text"
+							},
+							{
+								"key": "tokenByClass",
+								"value": "{{tokenByClass}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Khu du lịch sinh thái Hồng Hào\",\r\n    \"province\" : \"Bến tre\",\r\n    \"country\": \"viet nam\",\r\n    \"valueate\" : 8\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/locations",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"locations"
+							]
+						},
+						"description": "API thêm vị trí du lịch"
+					},
+					"response": []
+				},
+				{
+					"name": "8 / xóa vị trí",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token_admin}}",
+								"description": "ADMIN",
+								"type": "text"
+							},
+							{
+								"key": "tokenByClass",
+								"value": "{{tokenByClass}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/locations/617af2f3da03f39db7616601",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"locations",
+								"617af2f3da03f39db7616601"
+							]
+						},
+						"description": "API xóa vị trí du lịch"
+					},
+					"response": []
+				},
+				{
+					"name": "9 / lấy danh sách vị trí",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "tokenByClass",
+								"value": "{{tokenByClass}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/locations?location=bến ninh",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"locations"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "skip",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "location",
+									"value": "bến ninh"
+								}
+							]
+						},
+						"description": "API lấy danh sách vị trí du lịch ( có phân trang , và search theo location )"
+					},
+					"response": []
+				},
+				{
+					"name": "10 / lấy thông tin chi tiết vị trí",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "tokenByClass",
+								"value": "{{tokenByClass}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/locations/617af2e4da03f39db76165fe",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"locations",
+								"617af2e4da03f39db76165fe"
+							]
+						},
+						"description": "API lấy chi tiết vị trí du lịch"
+					},
+					"response": []
+				},
+				{
+					"name": "11 / cập nhật thông tin vị trí",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token_admin}}",
+								"type": "text"
+							},
+							{
+								"key": "tokenByClass",
+								"value": "{{tokenByClass}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Long Xuyen\",\r\n    \"province\": \"An Giang\",\r\n    \"country\": \"VN\",\r\n     \"valueate\" : 8\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/locations/60c3220c9e2c3233f436e9e7",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"locations",
+								"60c3220c9e2c3233f436e9e7"
+							]
+						},
+						"description": "API cập nhật vị trí du lịch"
+					},
+					"response": []
+				},
+				{
+					"name": "12 / cập nhật ảnh cho vị trí",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token_admin}}",
+								"type": "text"
+							},
+							{
+								"key": "tokenByClass",
+								"value": "{{tokenByClass}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "location",
+									"type": "file",
+									"src": "/C:/Users/hao9x/Pictures/ag/84118587_177433410190958_1717008705238597632_n.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/locations/upload-images/60c316b29145e66a3bb09858",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"locations",
+								"upload-images",
+								"60c316b29145e66a3bb09858"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "13 / lấy sanh sách vị trí theo đánh giá",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "tokenByClass",
+								"value": "{{tokenByClass}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/locations/by-valueate?valueate=5",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"locations",
+								"by-valueate"
+							],
+							"query": [
+								{
+									"key": "valueate",
+									"value": "5",
+									"description": "đánh giá người dùng (1 - 10)"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Xác thực người dùng",
+			"item": [
+				{
+					"name": "14 / đăng nhập",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "tokenByClass",
+								"value": "{{tokenByClass}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"thuy@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/auth/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						},
+						"description": "API đăng nhập"
+					},
+					"response": []
+				},
+				{
+					"name": "15 / đăng ký",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "tokenByClass",
+								"value": "{{tokenByClass}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Nguyễn Phong Kha\",\r\n  \"email\": \"kha9x0159@gmail.com\",\r\n  \"password\": \"123456\",\r\n  \"phone\": \"0909876987\",\r\n  \"birthday\": \"1998/05/11\",\r\n  \"gender\": true,\r\n  \"address\": \"191A Chường Trinh Quận 12\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/auth/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						},
+						"description": "API đăng ký"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Quản lý phòng cho thuê",
+			"item": [
+				{
+					"name": "16 / tạo phòng cho thuê",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token_admin}}",
+								"type": "text"
+							},
+							{
+								"key": "tokenByClass",
+								"value": "{{tokenByClass}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Phòng Siêu Vip Pro\",\r\n  \"guests\": 2,\r\n  \"bedRoom\": 2,\r\n  \"bath\": 3,\r\n  \"description\": \"Khách Sạn này thật tuyệt vời\",\r\n  \"price\": 100000,\r\n  \"elevator\": false,\r\n  \"hotTub\": true,\r\n  \"pool\": true,\r\n  \"indoorFireplace\": false,\r\n  \"dryer\": true,\r\n  \"gym\": false,\r\n  \"kitchen\": true,\r\n  \"wifi\": true,\r\n  \"heating\": true,\r\n  \"cableTV\": true,\r\n  \"locationId\": \"617af2e4da03f39db76165fe\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/rooms",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rooms"
+							]
+						},
+						"description": "API tạo phòng"
+					},
+					"response": []
+				},
+				{
+					"name": "17 / lấy danh sách phòng cho thuê theo vị trí",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "tokenByClass",
+								"value": "{{tokenByClass}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/rooms",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rooms"
+							],
+							"query": [
+								{
+									"key": "locationId",
+									"value": "60e2a99366f6d30f8cfc67bc",
+									"description": "long xuyen",
+									"disabled": true
+								},
+								{
+									"key": "skip",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "2",
+									"disabled": true
+								}
+							]
+						},
+						"description": "API lấy danh sách phòng ( phân trang và theo location )"
+					},
+					"response": []
+				},
+				{
+					"name": "18 / lấy thông tin chi tiết phòng cho thuê",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "tokenByClass",
+								"value": "{{tokenByClass}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/rooms/60c31a069145e66a3bb0985a",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rooms",
+								"60c31a069145e66a3bb0985a"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						},
+						"description": "API lấy thông tin chi tiết phòng"
+					},
+					"response": []
+				},
+				{
+					"name": "19 / cập nhật thông tin phòng cho thuê",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "tokenByClass",
+								"value": "{{tokenByClass}}",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "{{token_admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Khách Sạn Hồng Hào\",\r\n  \"guests\": 2,\r\n  \"bedRoom\": 2,\r\n  \"bath\": 3,\r\n  \"description\": \"Khách Sạn này dở ẹt\",\r\n  \"price\": 100000,\r\n  \"elevator\": false,\r\n  \"hotTub\": true,\r\n  \"pool\": true,\r\n  \"indoorFireplace\": false,\r\n  \"dryer\": true,\r\n  \"gym\": false,\r\n  \"kitchen\": true,\r\n  \"wifi\": true,\r\n  \"heating\": true,\r\n  \"cableTV\": true,\r\n  \"locationId\": \"6098b6ca710a3d0500274de9\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/rooms/60ab510c9db98f001509e34d",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rooms",
+								"60ab510c9db98f001509e34d"
+							]
+						},
+						"description": "API cập nhật thông tin phòng"
+					},
+					"response": []
+				},
+				{
+					"name": "20 / xóa phòng cho thuê",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "tokenByClass",
+								"value": "{{tokenByClass}}",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "{{token_admin}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/rooms/60ab510c9db98f001509e34d",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rooms",
+								"60ab510c9db98f001509e34d"
+							]
+						},
+						"description": "API xóa phòng"
+					},
+					"response": []
+				},
+				{
+					"name": "21 / đặt phòng cho thuê",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token_admin}}",
+								"description": "ADMIN",
+								"type": "text"
+							},
+							{
+								"key": "tokenByClass",
+								"value": "{{tokenByClass}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"roomId\" : \"60c31a069145e66a3bb0985a\", \r\n    \"checkIn\": \"2021-05-11T17:00:00.000+00:00\", \r\n    \"checkOut\": \"2021-05-15T17:00:00.000+00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/rooms/booking/6098b73b710a3d0500274dec",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rooms",
+								"booking",
+								"6098b73b710a3d0500274dec"
+							]
+						},
+						"description": "API cho phép người dùng đặt phòng"
+					},
+					"response": []
+				},
+				{
+					"name": "22 / Cập nhật hình ảnh phòng cho thuê",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "tokenByClass",
+								"value": "{{tokenByClass}}",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "{{token_admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "room",
+									"type": "file",
+									"src": "/C:/Users/hao9x/Pictures/ag/95482478_679356936219219_1305451908005101568_n.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/rooms/upload-image/60e2b42881deca4f087d589d",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rooms",
+								"upload-image",
+								"60e2b42881deca4f087d589d"
+							]
+						},
+						"description": "API tải hình của phòng"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Quản lý đánh giá",
+			"item": [
+				{
+					"name": "23 / tạo một đánh giá",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token_admin}}",
+								"type": "text"
+							},
+							{
+								"key": "tokenByClass",
+								"value": "{{tokenByClass}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"content\" : \"chổ ở như qq\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/reviews?roomId=60c31a069145e66a3bb0985a",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"reviews"
+							],
+							"query": [
+								{
+									"key": "roomId",
+									"value": "60c31a069145e66a3bb0985a"
+								}
+							]
+						},
+						"description": "API tạo bình luận"
+					},
+					"response": []
+				},
+				{
+					"name": "24 / lấy danh sách đánh giá theo phòng",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "tokenByClass",
+								"value": "{{tokenByClass}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/reviews/byRoom?roomId=60e2aea0b8b48640745a0b9c",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"reviews",
+								"byRoom"
+							],
+							"query": [
+								{
+									"key": "roomId",
+									"value": "60e2aea0b8b48640745a0b9c"
+								}
+							]
+						},
+						"description": "API lấy bình luận theo phòng"
+					},
+					"response": []
+				},
+				{
+					"name": "25 / xóa đánh giá",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token_admin}}",
+								"type": "text"
+							},
+							{
+								"key": "tokenByClass",
+								"value": "{{tokenByClass}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/reviews/60c31d879145e66a3bb0985e",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"reviews",
+								"60c31d879145e66a3bb0985e"
+							]
+						},
+						"description": "API xóa bình luận"
+					},
+					"response": []
+				},
+				{
+					"name": "26 / lấy thông tin chi tiết một đánh giá",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "tokenByClass",
+								"value": "{{tokenByClass}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/reviews/60c31d5f9145e66a3bb0985d",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"reviews",
+								"60c31d5f9145e66a3bb0985d"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						},
+						"description": "API lấy thông tin chi tiết bình luận"
+					},
+					"response": []
+				},
+				{
+					"name": "27 / cập nhật thông tin đánh giá",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "tokenByClass",
+								"value": "{{tokenByClass}}",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "{{token_admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"content\" : \"thật sự quá đỉnh\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/reviews/60c31d879145e66a3bb0985e",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"reviews",
+								"60c31d879145e66a3bb0985e"
+							]
+						},
+						"description": "API cập nhật bình luận"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Quản lý vé",
+			"item": [
+				{
+					"name": "28 / lấy danh sách vé",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "tokenByClass",
+								"value": "{{tokenByClass}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/api/tickets",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"tickets"
+							]
+						},
+						"description": "API lấy danh sách vé"
+					},
+					"response": []
+				},
+				{
+					"name": "29 / lấy thông tin chi tiết vé",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "tokenByClass",
+								"value": "{{tokenByClass}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/tickets/60c3291e900ea640e0fe4e47",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"tickets",
+								"60c3291e900ea640e0fe4e47"
+							]
+						},
+						"description": "API lấy chi tiết vé"
+					},
+					"response": []
+				},
+				{
+					"name": "30 / cập nhật thông tin vé",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token_admin}}",
+								"type": "text"
+							},
+							{
+								"key": "tokenByClass",
+								"value": "{{tokenByClass}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"checkIn\": \"2021-05-11T17:00:00.000Z\",\r\n    \"checkOut\": \"2022-05-15T17:00:00.000Z\",\r\n    \"userId\": \"60ab50479db98f001509e34c\",\r\n    \"roomId\": \"60c31a069145e66a3bb0985a\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/tickets/60c31b6f9145e66a3bb0985b",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"tickets",
+								"60c31b6f9145e66a3bb0985b"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						},
+						"description": "API cập nhật thông tin vé"
+					},
+					"response": []
+				},
+				{
+					"name": "31 / xóa vé",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token_admin}}",
+								"type": "text"
+							},
+							{
+								"key": "tokenByClass",
+								"value": "{{tokenByClass}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/tickets/60c3267a900ea640e0fe4e46",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"tickets",
+								"60c3267a900ea640e0fe4e46"
+							]
+						},
+						"description": "xóa vé"
+					},
+					"response": []
+				},
+				{
+					"name": "32 / tạo vé",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token_admin}}",
+								"type": "text"
+							},
+							{
+								"key": "tokenByClass",
+								"value": "{{tokenByClass}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"checkIn\": \"2021-05-12T17:00:00.000Z\",\r\n    \"checkOut\": \"2021-05-16T17:00:00.000Z\",\r\n    \"userId\": \"60c313c79145e66a3bb09857\",\r\n    \"roomId\": \"60c323cbc68f154164fdca1c\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/tickets",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"tickets"
+							]
+						},
+						"description": "API tạo vé"
+					},
+					"response": []
+				},
+				{
+					"name": "33 / lấy danh sách vé theo người dùng",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "tokenByClass",
+								"value": "{{tokenByClass}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/tickets/by-user?userId=60e2b055e22b6b3b70243098",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"tickets",
+								"by-user"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "60e2b055e22b6b3b70243098"
+								},
+								{
+									"key": "skip",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "0",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "34 / lấy danh sách vé theo phòng",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "tokenByClass",
+								"value": "{{tokenByClass}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/tickets/by-room?roomId=60e2b057e22b6b3b7024309c",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"tickets",
+								"by-room"
+							],
+							"query": [
+								{
+									"key": "roomId",
+									"value": "60e2b057e22b6b3b7024309c"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
